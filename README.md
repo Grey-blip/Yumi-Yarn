@@ -34,7 +34,7 @@ A full-stack event planning web application built for the Network-Based Applicat
 
 ## Installation & Setup
 ```bash
-git clone https://github.com/grey-blip/yumi-yarn.git
+git clone https://github.com/Grey-blip/yumi-yarn.git
 cd yumi-yarn
 npm install
 npm run dev
