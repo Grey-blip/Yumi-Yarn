@@ -1,0 +1,59 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="magic">
+    
+    <div class="event-icon">
+        
+        <h1><%= events.title %></h1>
+        <%if(user == events.hostName._id){%>
+        <form>
+        <button type="submit" formmethod="GET" formaction="/events/<%= events._id%>/edit" class="icon-button">
+                <i class="fa-solid fa-square-check"></i>
+        </button> 
+        </form>
+        
+        <form>
+        <button type="submit" formmethod="POST" formaction="/events/<%= events._id %>?_method=DELETE" class="icon-button">
+            <i class="fa-solid fa-trash"></i>
+        </button>        
+        </form>
+        <%}%>
+    </div>
+
+
+    <div class="rsvp-icon">
+        <p>Going?</p>
+        <form formmethod="POST" formaction="/events/<%= events._id %>/rsvp">
+            <input type="hidden" name="status" value="Yes">
+            <button type="submit" formmethod="POST" formaction="/events/<%= events._id %>/rsvp" class="rsvp yes">Yes</button>
+        </form>
+        <form formmethod="POST" formaction="/events/<%= events._id %>/rsvp">
+            <input type="hidden" name="status" value="No">
+            <button type="submit" formmethod="POST" formaction="/events/<%= events._id %>/rsvp" class="rsvp no">No</button>
+        </form>
+        <form formmethod="POST" formaction="/events/<%= events._id %>/rsvp">
+            <input type="hidden" name="status" value="Maybe">
+            <button type="submit" formmethod="POST" formaction="/events/<%= events._id %>/rsvp" class="rsvp maybe">Maybe</button>
+        </form>   
+    </div>
+
+
+    <div class="event-logo">
+
+        <img src="/images/<%= events.image %>" alt="event image" width="300" height="200">
+        
+        <div class="event-detail">
+            <p><strong>Host: </strong><%= events.hostName.firstName + " " + events.hostName.lastName %></p>
+            <br>
+            <p><strong>Date and Time: </strong><%= events.startForm %> - <%= events.endForm %></p>
+            <br>
+            <p><strong>Location: </strong><%= events.location%></p>
+            <br>
+            <p><strong>Details: </strong><%= events.details %></p>
+            <br>
+            <p><strong>Number of RSVPs: </strong><%= rsvpCount%></p>
+        </div>
+    </div>
+    </main>
+
+<%- include('../partials/footer.ejs') %>

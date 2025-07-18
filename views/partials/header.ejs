@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Yumi Yarn</title>
+        <link rel="icon" href="/images/YumiYarn- copy.png" type="image/png">
+
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="https://kit.fontawesome.com/b15388b4db.js" crossorigin="anonymous"></script>
+    </head>
+    <header >
+        <div class="container">
+        <div class="header-left">
+            <a href='/'><img src="/images/YumiYarn- copy.png" alt="a picture for yarn and needle" width="150" height="150"></a>
+        
+    </div>
+        <nav class="user-nav">
+        <ul>
+        <%if(!user){%>
+            <li><a href="/users/signup">Sign up</a></li>
+            <li><a href="/users/login">Login</a></li>
+        <%}else{%>
+            <li><a href='/events/new'> New Event</a></li>
+            <li><a href="/users/profile"> <%=user.firstName + "'s "%>Profile</a></li>
+            <li><a href="/users/logout">Logout</a></li>
+        <%}%>
+        </ul>
+    </nav>
+
+</div>
+<hr class="line">
+    <nav class="general-nav">
+        <ul>
+            <li><a href='/events'>Events</a></li>
+        </ul>
+    </nav>
+    <% if(errorMessages?.length > 0) {%>
+        <% errorMessages.forEach(message=>{%>
+            <div class='error'>
+                <%=message%>
+            </div>
+            <%});%>
+                <%}%>
+    
+                    <% if(successMessages?.length > 0) {%>
+    
+                        <% successMessages.forEach(message=>{%>
+                            <div class='success'>
+                                <%=message%>
+                            </div>
+                            <%});%>
+                                <%}%>
+    </header>

@@ -1,0 +1,54 @@
+<%- include('../partials/header.ejs') %>
+    
+        <main>
+        <form action='/events' enctype="multipart/form-data" method='POST' class="new-event">
+            <label for="category">Category required </label>
+            <select name="category" id="category" >
+                <option value=""> (--Select a Category--)</option>
+                <option value="Crochet a Craft">Crochet a Craft</option>
+                <option value="Team Building">Team Building</option>
+                <option value="Yarn Market">Yarn Market</option>
+                <option value="Networking & Skill Building">Networking & Skill Building</option>
+                <option value="Other">Other</option>
+            </select>
+
+                <br> <br>
+
+            <label for="title">Title  </label>
+            <input name="title" type="text" id="title" placeholder="Title" required>
+
+                <br> <br>
+
+            <label for="details" class="details">Details  </label>
+            <textarea name="details" id="details" cols="60" rows="3" placeholder="details" required minlength="10"></textarea>
+
+                <br> <br>
+
+            <label for="location">Where  </label>
+            <input name="location" type="text" id="location" placeholder="Location" required>
+
+                <br> <br>
+
+            <label for="start"> Start  </label>
+            <input type="datetime-local" name="start" id="start" required>
+
+                <br> <br>
+
+            <label for="end"> End  </label>
+            <input type="datetime-local" name="end" id="end" required>
+
+                <br> <br>
+            
+            <label for="image">Image  </label>
+            <input type="file" id="image" name="image" required accept="image/jpeg, image/png, image/gif">
+            <br>
+            <span class="abri" >* Accepted Files include (jpeg, png, gif)</span>
+            
+                <br> <br>
+            <button>Submit</button>
+
+        </form>
+    </main>
+
+
+    <%- include('../partials/footer.ejs') %>

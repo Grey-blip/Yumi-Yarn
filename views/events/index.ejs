@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs') %>
+
+        <main class="event-position">
+           
+        <div class="push">
+            <%if(events.length){
+              const category = ['Team Building', 'Networking & Skill Building', 'Crochet a Craft', 'Yarn Market', 'Other'];
+              category.forEach(category =>{
+                const filtered = events.filter(event => event.category === category);
+                if(filtered.length){%>
+                  <h2><%= category %></h2>
+                  <ul>
+                    <% filtered.forEach(event => { %>
+                      <li>
+                      <a href="/events/<%= event._id %>"><p><%= event.title%></p></a>
+                    </li>
+                   <% }); %>
+                  </ul>
+                  <% }
+                 });
+
+             }else{%>
+                <p>There are no events to display!</p>
+          <% } %>
+
+        </div>
+        
+    </main>
+    
+    <%- include('../partials/footer.ejs') %>
